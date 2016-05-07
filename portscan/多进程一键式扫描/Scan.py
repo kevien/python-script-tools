@@ -31,7 +31,7 @@ def Scan(target):
         # raise IOError("Error")
 
 def Help():
-    help='NmapScaner V1.0 . Used For Port/Service/OS Fast Scanning.\n'
+    help='NmapScanner V1.0 . Used For Port/Service/OS Fast Scanning.\n'
     help+='Usage:'+sys.argv[0] +' [IP]\n'
     help+='IP    -The IP List File Path.\n'
     help+='[*]Notice:The result will be saved in result.txt,Enjoy!\n'
@@ -45,7 +45,7 @@ if __name__ == '__main__':
     iplist =[]
     with open(sys.argv[1]) as f:
         iplist = f.readlines()
-    p = Pool(5)
+    p = Pool(50)
     p.map(Scan, iplist)
     end = time.time()
-    print "use: %s" % (end - start)
+    print "Scan %s Finished  use: %s" %(sys.argv[1] ,(end - start))
